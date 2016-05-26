@@ -37,7 +37,8 @@ var Md2Datepicker = (function () {
     Md2Datepicker = __decorate([
         core_1.Component({
             selector: 'md2-datepicker',
-            template: "\n        <input (click)=\"showDatepicker()\" (blur)=\"hideDatepicker()\" type=\"text\" value=\"{{ getDate() | date:'fullDate'}}\" style=\"display: block;\" />\n        <div *ngIf=\"show\" style=\"display: inline-block; min-height:290px;\">\n            <datepicker [(ngModel)]=\"dt\" [minDate]=\"minDate\" [showWeeks]=\"true\"></datepicker>\n        </div>\n  \t\t\t",
+            template: "<div class=\"md2-datepicker-container\">\n                <button class=\"md2-datepicker-btn\" (click)=\"showDatepicker()\" (blur)=\"hideDatepicker()\"></button>\n                <div class=\"md2-datepicker-input\">\n                  <input type=\"text\" value=\"{{ getDate() | date:'fullDate'}}\" />\n                  <button class=\"md2-datepicker-triangle-btn\" (click)=\"showDatepicker()\" (blur)=\"hideDatepicker()\"></button>\n                </div>\n                <div class=\"md2-datepicker\" *ngIf=\"show\">\n                  <datepicker [(ngModel)]=\"dt\" [minDate]=\"minDate\" [showWeeks]=\"true\"></datepicker>\n                </div>\n             </div>\n             ",
+            styleUrls: ['app/Md2Datepicker.css'],
             directives: [datepicker_component_1.DatePickerComponent]
         }), 
         __metadata('design:paramtypes', [])

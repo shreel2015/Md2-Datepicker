@@ -3,12 +3,18 @@ import { DatePickerComponent } from './datepicker.component';
 
 @Component({
   selector: 'md2-datepicker',
-  template: `
-        <input (click)="showDatepicker()" (blur)="hideDatepicker()" type="text" value="{{ getDate() | date:'fullDate'}}" style="display: block;" />
-        <div *ngIf="show" style="display: inline-block; min-height:290px;">
-            <datepicker [(ngModel)]="dt" [minDate]="minDate" [showWeeks]="true"></datepicker>
-        </div>
-  			`,
+  template: `<div class="md2-datepicker-container">
+                <button class="md2-datepicker-btn" (click)="showDatepicker()" (blur)="hideDatepicker()"></button>
+                <div class="md2-datepicker-input">
+                  <input type="text" value="{{ getDate() | date:'fullDate'}}" />
+                  <button class="md2-datepicker-triangle-btn" (click)="showDatepicker()" (blur)="hideDatepicker()"></button>
+                </div>
+                <div class="md2-datepicker" *ngIf="show">
+                  <datepicker [(ngModel)]="dt" [minDate]="minDate" [showWeeks]="true"></datepicker>
+                </div>
+             </div>
+             `,
+  styleUrls: ['app/Md2Datepicker.css']
   directives: [DatePickerComponent]
 })
 export class Md2Datepicker {

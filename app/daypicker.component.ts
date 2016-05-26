@@ -56,7 +56,7 @@ const CURRENT_THEME_TEMPLATE:any = TEMPLATE_OPTIONS[Ng2BootstrapConfig.theme || 
   template: `
 <table *ngIf="datePicker.datepickerMode==='day'" role="grid" aria-labelledby="uniqueId+'-title'" aria-activedescendant="activeDateId">
   <thead>
-    <tr>
+    <tr class="md2-dp-mnth-yr">
       <th>
         <button type="button" class="btn btn-default btn-secondary btn-sm pull-left" (click)="datePicker.move(-1)" tabindex="-1">
         ${CURRENT_THEME_TEMPLATE.ARROW_LEFT}
@@ -65,7 +65,6 @@ const CURRENT_THEME_TEMPLATE:any = TEMPLATE_OPTIONS[Ng2BootstrapConfig.theme || 
       <th [attr.colspan]="5 + datePicker.showWeeks">
         <button [id]="datePicker.uniqueId + '-title'"
                 type="button" class="btn btn-default btn-secondary btn-sm"
-                (click)="datePicker.toggleMode()"
                 [disabled]="datePicker.datepickerMode === datePicker.maxMode"
                 [ngClass]="{disabled: datePicker.datepickerMode === datePicker.maxMode}" tabindex="-1" style="width:100%;">
           <strong>{{title}}</strong>
@@ -77,12 +76,12 @@ const CURRENT_THEME_TEMPLATE:any = TEMPLATE_OPTIONS[Ng2BootstrapConfig.theme || 
         </button>
       </th>
     </tr>
-    <tr>
+    <tr class="md2-dp-weekdays">
       <th *ngIf="datePicker.showWeeks"></th>
       ${CURRENT_THEME_TEMPLATE.DAY_TITLE}
     </tr>
   </thead>
-  <tbody>
+  <tbody class="md2-dp-dates">
     <template ngFor [ngForOf]="rows" let-rowz="$implicit" let-index="index">
       <tr *ngIf="!(datePicker.onlyCurrentMonth && rowz[0].secondary && rowz[6].secondary)">
         ${CURRENT_THEME_TEMPLATE.WEEK_ROW}
