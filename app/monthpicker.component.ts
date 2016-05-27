@@ -30,7 +30,7 @@ const CURRENT_THEME_TEMPLATE:any = TEMPLATE_OPTIONS[Ng2BootstrapConfig.theme] ||
   template: `
 <table *ngIf="datePicker.datepickerMode==='month'" role="grid">
   <thead>
-    <tr>
+    <tr class="md2-dp-header">
       <th>
         <button type="button" class="btn btn-default btn-sm pull-left"
                 (click)="datePicker.move(-1)" tabindex="-1">
@@ -53,7 +53,7 @@ const CURRENT_THEME_TEMPLATE:any = TEMPLATE_OPTIONS[Ng2BootstrapConfig.theme] ||
       </th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="md2-dp-body mnth-yr">
     <tr *ngFor="let rowz of rows">
       <td *ngFor="let dtz of rowz" class="text-center" role="gridcell" id="{{dtz.uid}}" [ngClass]="dtz.customClass">
         ${CURRENT_THEME_TEMPLATE.MONTH_BUTTON}
